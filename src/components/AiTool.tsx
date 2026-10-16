@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { runAiTool } from "@/lib/ai.functions";
+import { addToArchive } from "@/lib/archive";
 
 export function AiTool({
   tool,
@@ -28,8 +29,10 @@ export function AiTool({
     setErr("");
     setOut("");
     try {
-      const r = await run({ data: { tool, prompt: buildPrompt ? buildPrompt(text) : text } });
+      const prompt = buildPrompt ? buildPrompt(text) : text;
+      const r = await run({ data: { tool, prompt } });
       setOut(r.text);
+      addToArchive(tool, prompt, r.text);
     } catch (e) {
       setErr(e instanceof Error ? e.message : "Something went wrong");
     } finally {
