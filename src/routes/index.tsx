@@ -171,7 +171,7 @@ function Dashboard() {
       )}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
-        {[["/email", "✉ Smart Email Generator"], ["/notes", "✎ Meeting Notes Summarizer"], ["/planner", "☑ AI Task Planner"]].map(([to, l]) => (
+        {([["/email", "✉ Smart Email Generator"], ["/notes", "✎ Meeting Notes Summarizer"], ["/planner", "☑ AI Task Planner"]] as const).map(([to, l]) => (
           <Link key={to} to={to} className="card-ui bg-gradient-soft font-semibold transition hover:-translate-y-0.5">{l} →</Link>
         ))}
       </div>
