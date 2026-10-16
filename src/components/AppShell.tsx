@@ -6,6 +6,7 @@ const NAV = [
   { to: "/email", label: "Smart Email Generator", icon: "✉" },
   { to: "/notes", label: "Meeting Notes Summarizer", icon: "✎" },
   { to: "/planner", label: "AI Task Planner", icon: "☑" },
+  { to: "/archive", label: "Archive", icon: "🗂" },
 ] as const;
 
 export function AppShell({ title, subtitle, children }: { title: string; subtitle?: string; children: ReactNode }) {
